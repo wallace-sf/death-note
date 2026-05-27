@@ -10,6 +10,7 @@ A personal interactive notebook inspired by dark fantasy aesthetics, built with 
 - React
 - TypeScript
 - Tailwind CSS
+- react-pageflip
 - LocalStorage persistence
 - Clean Architecture + DDD-style boundaries
 
@@ -37,11 +38,14 @@ The domain does not depend on React, Next.js or browser APIs.
 
 - Dark notebook landing screen
 - Editable pages
+- Desktop page flip animation with `react-pageflip`
+- Mobile fallback layout
 - Add page action
 - Previous/next page navigation
 - Local browser persistence
 - Domain validation with `Either`
 - Isolated use cases for loading, creating, adding pages and updating page content
+- ESLint flat config
 
 ## Getting started
 
@@ -52,11 +56,18 @@ pnpm dev
 
 Open `http://localhost:3000`.
 
+## Quality checks
+
+```bash
+pnpm typecheck
+pnpm lint
+pnpm build
+```
+
 ## Suggested next steps
 
-- Add page flip animation with `react-pageflip`
 - Add IndexedDB adapter
 - Add export to PDF
 - Add sound effects
 - Add tests for value objects, entities and use cases
-- Add responsive mobile book layout
+- Add better mobile page transition
