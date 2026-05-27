@@ -2,13 +2,18 @@
 
 This document captures the visual direction for using printable/3D-model references as inspiration for the 2D notebook UI.
 
-## Reference found
+## References found
 
-A useful reference is the Printables model series by Venterus:
+Useful references from the Printables model series by Venterus:
 
-- `Death Note Page 0 / Book Cover`
-- `Death Note Page 1`
-- related highlighted models for pages 2, 3, and 5
+| Notebook section | Reference URL | Implementation purpose |
+|---|---|---|
+| Cover / Page 0 | `https://media.printables.com/media/prints/22de05ed-0825-440a-9429-2d94a00ea4c0/images/9385059_97770000-7c31-4140-946d-90657452d21d_1c3d6cf2-1816-44ab-a4fd-84893a89c6a9/thumbs/inside/1280x960/png/1.webp` | Study cover proportions, title placement, high-contrast black/white design, and overall notebook identity. |
+| Page 1 | User-provided Printables page URL from the previous discussion | Study the first internal static page and establish the static-page registry pattern. |
+| Page 2 | `https://media.printables.com/media/prints/666a6a73-11fd-49a3-b7a0-65ea6d14b8be/images/9385103_933a705b-9d26-4dc6-978a-d69de392a2ff_83333987-3490-4dcc-bfb2-6c377e500e18/thumbs/inside/1280x960/png/3.webp` | Study continuation page layout and visual rhythm. |
+| Page 3 | `https://media.printables.com/media/prints/e0f1f7d6-b821-40a2-acce-091b87ce1d38/images/9385156_33c471e6-fb0e-4920-87ca-37d97f16e5a0_8eea2a75-2491-448c-8988-7c36e6314012/thumbs/inside/1920x1440/png/4.webp` | Study typographic scale, contrast, and static page composition. |
+| Page 4 | `https://media.printables.com/media/prints/7b03d28c-ab2c-410d-9744-acd02a32a776/images/9389338_29133f6e-9136-4765-a3ce-21f2cf10deaa_09986d22-fb6e-4ddb-a927-afc62ade4a50/thumbs/inside/1280x960/png/5.webp` | Study additional internal page hierarchy and spacing. |
+| Page 5 | `https://media.printables.com/media/prints/edcbddd7-aef2-4bee-981c-9224c3b399ca/images/9389348_b8b6023e-e6a8-47cc-8d99-57861cc84419_0e3a36f5-f24a-414e-b5ed-5a329004fac9/thumbs/inside/1280x960/png/6.webp` | Study later static-page layout and how to transition into editable pages. |
 
 The Printables pages describe these as 2D plate/logo-style models, with a 155.12 x 240 mm page size, black/white filament swaps, and HueForge-style tags. The important point for this project is not the printable file itself, but the idea of representing the notebook as a sequence of recognizable static pages.
 
@@ -94,9 +99,9 @@ The page flip order should be:
 8. User editable pages
 ```
 
-## Visual guidance from the Printables reference
+## Visual guidance from the Printables references
 
-Use the reference to study:
+Use the references to study:
 
 - page aspect ratio around 155 x 240 mm;
 - black/white high-contrast page graphics;
