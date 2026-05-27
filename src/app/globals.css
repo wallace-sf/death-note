@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #f5f5f4;
+  --paper: #d8c39b;
+  --paper-dark: #b69a68;
+  --ink: #171312;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at top, rgba(88, 28, 28, 0.35), transparent 32rem),
+    linear-gradient(135deg, #050505 0%, #111113 45%, #050505 100%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.book-shadow {
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.55);
+}
+
+.notebook-page {
+  position: relative;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(74, 45, 19, 0.16), transparent 14%, transparent 86%, rgba(74, 45, 19, 0.14)),
+    radial-gradient(circle at 30% 15%, rgba(255, 255, 255, 0.28), transparent 16rem),
+    linear-gradient(135deg, #e7d2a9, var(--paper));
+  border: 1px solid rgba(69, 44, 23, 0.5);
+}
+
+.notebook-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 30px, rgba(55, 35, 20, 0.14) 31px),
+    repeating-linear-gradient(90deg, rgba(55, 35, 20, 0.08) 0 1px, transparent 1px 42px);
+}
+
+.notebook-page textarea::selection {
+  background: rgba(70, 10, 10, 0.25);
+}
+
+.cover-title {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.18em;
+  text-shadow: 0 0 18px rgba(220, 38, 38, 0.16);
+}
