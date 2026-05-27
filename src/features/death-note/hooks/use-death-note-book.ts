@@ -9,6 +9,7 @@ import { LocalStorageNotebookStore } from "@/infra/storage/local-storage-noteboo
 
 export function useDeathNoteBook() {
   const [notebook, setNotebook] = useState<Notebook | null>(null);
+  const [selectedPageIndex, setSelectedPageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const store = useMemo(() => new LocalStorageNotebookStore(), []);
 
@@ -31,6 +32,7 @@ export function useDeathNoteBook() {
 
     if (result.isRight()) {
       setNotebook(result.value);
+      setSelectedPageIndex(result.value.pages.length - 1);
     }
   }, [notebook, store]);
 
@@ -56,8 +58,10 @@ export function useDeathNoteBook() {
 
   return {
     notebook,
+    selectedPageIndex,
     isLoading,
     addPage,
     updatePageContent,
+    setSelectedPageIndex,
   };
 }
