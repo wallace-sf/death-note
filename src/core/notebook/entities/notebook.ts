@@ -13,6 +13,19 @@ export type NotebookProps = {
   updatedAt: Date;
 };
 
+function createDefaultPage(): NotePage {
+  const pageNumber = PageNumber.create(1);
+
+  if (pageNumber.isLeft()) {
+    throw pageNumber.value;
+  }
+
+  return NotePage.create({
+    id: crypto.randomUUID(),
+    pageNumber: pageNumber.value,
+  });
+}
+
 export class Notebook {
   private constructor(private readonly props: NotebookProps) {}
 
@@ -24,23 +37,11 @@ export class Notebook {
     updatedAt?: Date;
   }): Notebook {
     const now = new Date();
-    const pages = params.pages?.length
-      ? params.pages
-      : [
-          NotePage.create({
-            id: crypto.randomUUID(),
-            pageNumber: PageNumber.create(1).isRight()
-              ? PageNumber.create(1).value
-              : (() => {
-                  throw new Error("Invalid default page number.");
-                })(),
-          }),
-        ];
 
     return new Notebook({
       id: params.id,
       title: params.title,
-      pages,
+      pages: params.pages?.length ? params.pages : [createDefaultPage()],
       createdAt: params.createdAt ?? now,
       updatedAt: params.updatedAt ?? now,
     });
@@ -67,16 +68,15 @@ export class Notebook {
   }
 
   addPage(): Notebook {
-    const nextPageNumber = this.pages.length + 1;
-    const pageNumberOrError = PageNumber.create(nextPageNumber);
+    const pageNumber = PageNumber.create(this.pages.length + 1);
 
-    if (pageNumberOrError.isLeft()) {
+    if (pageNumber.isLeft()) {
       return this;
     }
 
     const page = NotePage.create({
       id: crypto.randomUUID(),
-      pageNumber: pageNumberOrError.value,
+      pageNumber: pageNumber.value,
     });
 
     return new Notebook({
