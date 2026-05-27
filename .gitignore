@@ -1,8 +1,31 @@
+# Dependencies
 node_modules
+
+# Next.js build output
 .next
 out
 dist
+
+# Environment variables
+.env
 .env*.local
+
+# TypeScript
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# Deployment
 .vercel
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Package manager
 pnpm-lock.yaml
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
