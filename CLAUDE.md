@@ -30,6 +30,46 @@ The notebook should feel much closer to the original prop:
 - Avoid modern card/dashboard aesthetics.
 - The experience should feel like opening an artifact, not a note-taking SaaS app.
 
+## 3D model references for a 2D interface
+
+The final notebook must remain a 2D web interface.
+
+3D models may be used only as design references to understand how the notebook should feel as a physical prop. Do not turn the project into a 3D scene, viewer, or WebGL experience. Platforms such as Sketchfab are useful because their WebGL/WebXR viewers make it possible to inspect a model from multiple angles, but the implementation in this repository must still be CSS/React-based 2D UI.
+
+Use 3D references to study:
+
+- cover thickness;
+- spine/lombada;
+- hard-cover silhouette;
+- worn corners;
+- matte black material;
+- paper block depth;
+- aged page edges;
+- cast shadows;
+- object proportions.
+
+Translate those observations into 2D implementation:
+
+- CSS gradients for lighting;
+- inset shadows for depth;
+- pseudo-elements for spine, bevels, scratches, and worn edges;
+- subtle CSS transforms/perspective only when they support a 2D page/book illusion;
+- paper texture using CSS, SVG noise, or generated assets owned by this project;
+- flat 2D layout with page-flip interaction.
+
+Forbidden for this project:
+
+- `three`;
+- `@react-three/fiber`;
+- `@react-three/drei`;
+- Three.js/WebGL scenes;
+- GLTF/GLB model loading;
+- downloaded 3D model files;
+- embedded Sketchfab/Fab/CGTrader viewers;
+- screenshots or renders from third-party models committed as assets.
+
+The goal is: a 2D interface informed by physical prop references, not a 3D-rendered notebook.
+
 ## Copyright-safe implementation rules
 
 Do:
@@ -180,6 +220,7 @@ The page around the notebook should be dark, minimal, and cinematic:
 
 - The first screen clearly looks like a black ominous notebook.
 - The first page after the cover is a rules page.
+- The notebook remains a 2D CSS/React interface, not a WebGL/Three.js implementation.
 - No official images or copied manga/anime text are committed.
 - `pnpm typecheck`, `pnpm lint`, and `pnpm build` pass.
 - The user can still write text, add pages, and reload the browser without losing saved content.
