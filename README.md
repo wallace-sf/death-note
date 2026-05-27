@@ -64,6 +64,8 @@ pnpm lint
 pnpm build
 ```
 
+Run these checks before opening a pull request.
+
 ## Suggested next steps
 
 - Add IndexedDB adapter
